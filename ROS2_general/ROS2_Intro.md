@@ -100,7 +100,7 @@ Then `field1` has to always be a 32-bit integer and `field2` has to always be a 
 
 A basic(minimally functional) ROS2 ecosystem can be analogously thought of as a Dairy which delivers milk to its customers through various milkmen (or delivery boys for you modern folks).
 
-A Topic is a milkman , a customer (receiving node) -subscribes to the dairy's(publisher node) service and the Dairy delivers at a fixed rate (frequency) through a milkman delivers , the milkman delivers and moves on.
+A Topic is a milkman , a customer (receiving node) -subscribes to the Dairy's(publisher node) service and the Dairy delivers at a fixed rate (frequency) through a milkman , the milkman delivers and moves on.
 
 The customer doesn't know or care which milkman delivers the milk to his doorstep(the customer can if they wish to). The customer's only concern is that the milk should get delivered at the agreed deliver timings and at the agreed number of packets per day(or whatever metric is used in your locality).
 
