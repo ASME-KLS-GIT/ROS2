@@ -1,4 +1,4 @@
-#ROS 
+
 # NODES : 
 ---
 A node is a participant in the ROS 2 graph, which uses a [client library](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Client-Libraries.html) to communicate with other nodes. Nodes can communicate with other nodes within the same process, in a different process, or on a different machine. Nodes are typically the unit of computation in a ROS graph; each node should do one logical thing.
@@ -7,48 +7,31 @@ Different functions are kept isolated from each other by using dedicated nodes f
 
 
 Each node is capable of :
-	Publish messages onto a topic.
-	
-	Subscribe to a topic and react to messages.
-	
-	Offer a service (handle requests from other nodes).
-	
-	Call a service on another node.
-	
-	Run actions (long tasks with progress feedback and cancellation).
-	
-	Fire timers at any frequency.
-	
-	Read and set parameters at runtime.
-	
-	Log messages (debug, info, warn, error).
-	
-	Access the ROS2 clock (real time or simulated time).
-	
-	Discover other nodes, topics, and services on the network automatically.
-	
-	Run on a different machine entirely and still communicate.
+- Publish messages onto a topic.
+- Subscribe to a topic and react to messages.
+- Offer a service (handle requests from other nodes).
+- Call a service on another node.
+- Run actions (long tasks with progress feedback and cancellation).
+- Fire timers at any frequency.
+- Read and set parameters at runtime.
+- Log messages (debug, info, warn, error).
+- Access the ROS2 clock (real time or simulated time).
+- Discover other nodes, topics, and services on the network automatically.
+- Run on a different machine entirely and still communicate.
 	
 
 #### WHAT A NODE CANNOT DO :
 ---
-Directly access another node's internal variables — everything must go through topics, services, or actions.
-
-
-Persist state after it shuts down — no built-in memory between runs.
-
-Guarantee real-time execution by itself — ROS2 is not a real-time systemof the box.
-
+- Directly access another node's internal variables — everything must go through topics, services, or actions.
+- Persist state after it shuts down — no built-in memory between runs.
+- Guarantee real-time execution by itself — ROS2 is not a real-time systemof the box.
 (there's ROS2 with [**RTOS**](https://en.wikipedia.org/wiki/Real-time_operating_system) (Real Time Operating System) for that, but that's advanced territory).
-
-
-Control hardware directly without a driver layer — a node talks to a hardware interface, it doesn't bypass the OS.
-
-ROS2 maintains modularity by enforcing these rules upon nodes . One node cannot reach into the scope of another node and that is not a convention but an enforced law .
+- Control hardware directly without a driver layer — a node talks to a hardware interface, it doesn't bypass the OS.
+- ROS2 maintains modularity by enforcing these rules upon nodes . One node cannot reach into the scope of another node and that is not a convention but an enforced law .
 
 ---
 
-### TOPICS:
+# TOPICS:
 
 Topics are one of the three primary styles of interfaces provided by ROS 2. Topics should be used for continuous data streams, like sensor data, robot state, etc.
 
@@ -59,7 +42,7 @@ A topic is something that generally acts as a bridge between two nodes , it carr
 This is called a publisher subscriber model in ROS2 and is one of the main characteristics of a ROS2 ecosystem.
 
 ---
-## A TOPIC HAS THREE MAIN CHARACTERISTICS :
+### A TOPIC HAS THREE MAIN CHARACTERISTICS :
 
 ### **PRIMARILY FUNCTIONS ON PUBLISHER/SUBSCRIBER MODEL** :
 
@@ -78,19 +61,17 @@ if the contents of a ROS message are :
 ```
 uint32 field1
 string field2
-
-
 ```
 Then `field1` has to always be a 32-bit integer and `field2` has to always be a string.
 
 ---
-# ANALOGY : 
+### ANALOGY : 
 
 A basic (minimally functional) ROS2 ecosystem can be analogously thought of as a Dairy which delivers milk to its customers through various milkmen.
 
-A Topic is a milkman , a customer (receiving node) -subscribes to the Dairy's(publisher node) service and the Dairy delivers at a fixed rate (frequency) through a milkman , the milkman delivers and moves on.
+A Topic is a milkman, a customer (receiving node)subscribes to the Dairy's(publisher node) service and the Dairy delivers at a fixed rate (frequency) through a milkman , the milkman delivers and moves on.
 
-The customer doesn't know or care which milkman delivers the milk to his doorstep(the customer can if they wish to). The customer's only concern is that the milk should get delivered at the agreed deliver timings and at the agreed number of packets per day(or whatever metric is used in your locality).
+The customer doesn't know or care which milkman delivers the milk to his doorstep(the customer can if they wish to). The customer's only concern is that the milk should get delivered at the agreed deliver timings and at the agreed number of packets per day.
 
 ---
 # SERVICES:
@@ -100,9 +81,5 @@ In ROS 2, a service refers to a remote procedure call. In other words, a node ca
 These services are meant to be quick and are hence not generally preferred for long running tasks.
 
 Services in ROS2 can be put into two entities , namely : 
-	Service Client 
-	Service Server 
-
-A service client is an entity that will request a remote service server to perform a computation on its behalf.
-
-A service server is the entity that will accept a remote procedure request, and perform some computation on it.and assume that there's no automated system maintaining all the semantics.
+- Service Client : A service client is an entity that will request a remote service server to perform a computation on its behalf.
+- Service Server : A service server is the entity that will accept a remote procedure request, and perform some computation on it and assume that there's no automated system maintaining all the semantics.
