@@ -1,14 +1,12 @@
 #ROS 
 # NODES : 
 ---
----
 A node is a participant in the ROS 2 graph, which uses a [client library](https://docs.ros.org/en/jazzy/Concepts/Basic/About-Client-Libraries.html) to communicate with other nodes. Nodes can communicate with other nodes within the same process, in a different process, or on a different machine. Nodes are typically the unit of computation in a ROS graph; each node should do one logical thing.
-
 
 Different functions are kept isolated from each other by using dedicated nodes for each of them .
 
 
-Each node is capable of :(you'll understand this better as you keep using ROS)
+Each node is capable of :
 	Publish messages onto a topic.
 	
 	Subscribe to a topic and react to messages.
@@ -32,9 +30,7 @@ Each node is capable of :(you'll understand this better as you keep using ROS)
 	Run on a different machine entirely and still communicate.
 	
 
----
-## **IMPORTANT**
-### What a node cannot do :
+#### WHAT A NODE CANNOT DO :
 ---
 Directly access another node's internal variables — everything must go through topics, services, or actions.
 
@@ -48,17 +44,11 @@ Guarantee real-time execution by itself — ROS2 is not a real-time systemof the
 
 Control hardware directly without a driver layer — a node talks to a hardware interface, it doesn't bypass the OS.
 
----
-
-ROS2 maintains modularity by enforcing these rules upon nodes . One node cannot reach into the scope of another node and that is not a convention but an enforced law which ensures modularity.
-
-
-If there's something being transferred between two nodes , then it **has** to be through a **topic** , **subscription**, or any communication channel provided by ROS2's 
-infrastructure.
+ROS2 maintains modularity by enforcing these rules upon nodes . One node cannot reach into the scope of another node and that is not a convention but an enforced law .
 
 ---
----
-## TOPICS:
+
+### TOPICS:
 
 Topics are one of the three primary styles of interfaces provided by ROS 2. Topics should be used for continuous data streams, like sensor data, robot state, etc.
 
@@ -69,7 +59,7 @@ A topic is something that generally acts as a bridge between two nodes , it carr
 This is called a publisher subscriber model in ROS2 and is one of the main characteristics of a ROS2 ecosystem.
 
 ---
-## A topic has three main characteristics :
+## A TOPIC HAS THREE MAIN CHARACTERISTICS :
 
 ### **PRIMARILY FUNCTIONS ON PUBLISHER/SUBSCRIBER MODEL** :
 
@@ -83,7 +73,6 @@ A publish/subscribe system is one in which there are **producers of data (publis
 
 ROS2 is known as an ecosystem where any interface defined is "strongly typed"
 
-This means we have to be clear of the semantics and assume that there's no automated system maintaining all the semantics.
 eg. 
 if the contents of a ROS message are :
 ```
@@ -92,19 +81,17 @@ string field2
 
 
 ```
-Then `field1` has to always be a 32-bit integer and `field2` has to always be a string. There is no automatic system that does this defining for you.
-
+Then `field1` has to always be a 32-bit integer and `field2` has to always be a string.
 
 ---
 # ANALOGY : 
 
-A basic(minimally functional) ROS2 ecosystem can be analogously thought of as a Dairy which delivers milk to its customers through various milkmen (or delivery boys for you modern folks).
+A basic (minimally functional) ROS2 ecosystem can be analogously thought of as a Dairy which delivers milk to its customers through various milkmen.
 
 A Topic is a milkman , a customer (receiving node) -subscribes to the dairy's(publisher node) service and the Dairy delivers at a fixed rate (frequency) through a milkman delivers , the milkman delivers and moves on.
 
 The customer doesn't know or care which milkman delivers the milk to his doorstep(the customer can if they wish to). The customer's only concern is that the milk should get delivered at the agreed deliver timings and at the agreed number of packets per day(or whatever metric is used in your locality).
 
----
 ---
 # SERVICES:
 
@@ -118,6 +105,4 @@ Services in ROS2 can be put into two entities , namely :
 
 A service client is an entity that will request a remote service server to perform a computation on its behalf.
 
-A service server is the entity that will accept a remote procedure request, and perform some computation on it.
-
-
+A service server is the entity that will accept a remote procedure request, and perform some computation on it.and assume that there's no automated system maintaining all the semantics.
