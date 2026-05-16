@@ -46,7 +46,7 @@ This is called a publisher subscriber model in ROS2 and is one of the main chara
 
 ### **PRIMARILY FUNCTIONS ON PUBLISHER/SUBSCRIBER MODEL** :
 
-A publish/subscribe system is one in which there are **producers of data (publishers)**and **consumers of data (subscribers).** The publishers and subscribers know how to contact each other through the concept of a “topic”, which is a common name so that the entities can find each other.
+A publish/subscribe system is one in which there are **producers of data (publishers)** and **consumers of data (subscribers).** The publishers and subscribers know how to contact each other through the concept of a “topic”, which is a common name so that the entities can find each other.
 
 ### **ANONYMOUS**
 
