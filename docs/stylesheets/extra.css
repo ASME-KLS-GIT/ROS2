@@ -1,0 +1,7 @@
+/* Small tweaks on top of Material's default theme */
+.md-typeset .admonition.try-it {
+  border-color: var(--md-primary-fg-color);
+}
+.md-typeset .try-it > .admonition-title {
+  background-color: var(--md-primary-fg-color--light);
+}
